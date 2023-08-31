@@ -1,0 +1,2 @@
+hi@gmail.com : 150.0
+bye@gmail.com : 50.0

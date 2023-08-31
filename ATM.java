@@ -79,4 +79,13 @@ public class ATM {
             throw new Exception("no account, poor");
         }
     }
+
+    public void audit() {
+        FileEditor.createFile("AccountAudit");
+        StringBuilder str = new StringBuilder();
+        for (String email : accounts.keySet()) {
+            str.append(email + " : " + accounts.get(email) + "\n");
+        }
+        FileEditor.writeFile("AccountAudit", str.toString());
+    }
 }
