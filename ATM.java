@@ -43,7 +43,7 @@ public class ATM {
                 throw new Exception("cant deposit debt *******");
             }
         } else {
-            throw new Exception("broke AF");
+            throw new Exception("no account, poor");
         }
     }
 
@@ -59,8 +59,24 @@ public class ATM {
                 throw new Exception("cant withdraw debt *******");
             }
         } else {
-            throw new Exception("broke AF");
+            throw new Exception("no account, poor");
         }
     }
 
+    public void transferMoney(String fromAccount, String toAccount, double amount) throws Exception {
+        if (accounts.containsKey(fromAccount) && accounts.containsKey(toAccount)) {
+            if (amount > 0) {
+                if (accounts.get(fromAccount) >= amount) {
+                    accounts.put(fromAccount, accounts.get(fromAccount) - amount);
+                    accounts.put(toAccount, accounts.get(toAccount) + amount);
+                } else {
+                    throw new Exception("broke AFFFFF");
+                }
+            } else {
+                throw new Exception("cant transfer debt *******");
+            }
+        } else {
+            throw new Exception("no account, poor");
+        }
+    }
 }
